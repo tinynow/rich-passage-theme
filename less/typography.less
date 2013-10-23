@@ -1,0 +1,134 @@
+html {
+	background: grey;
+}
+body {
+	width: 44em !important;
+	padding: 0 2px;
+}
+@small-screen: 20em; /* ~320px */
+@medium-screen: 30em;
+@large-screen: 44em; /* ~960px */
+
+
+
+
+
+
+
+@Neuton: Neuton, Times, Georgia, serif;
+@font-family-base: @Neuton;
+
+@line: 24px;
+@line-small: 24px; /* Base unit for the vertical rhythm of the site */
+@line-medium: 32px;
+@line-large: 48px;
+
+.font-function-small(@line-height-multiplier:1; @tightness:.6; @vertical-adjust:0;) {
+	@line-height-calc: ceil(@line-height-multiplier * @line-small);
+	line-height: @line-height-calc;
+	font-size: floor(@tightness * @line-height-calc);
+	margin-top: (0px + @vertical-adjust);
+	margin-bottom: (@line-small - @vertical-adjust);
+}
+
+.font-function-medium(@line-height-multiplier:1; @tightness:.6; @vertical-adjust:0;) {
+	@line-height-calc: ceil(@line-height-multiplier * @line-medium);
+	line-height: @line-height-calc;
+	font-size: floor(@tightness * @line-height-calc);
+	margin-top: (0px + @vertical-adjust);
+	margin-bottom: (@line-medium - @vertical-adjust);
+}
+
+
+/* The functions above are not quite what I want them, but I need to get moving on this website. */
+
+
+
+
+body {
+	.font-function-small(1,.7,0);
+	font-family: @font-family-base;
+
+}
+
+h1, .h1 {
+	.font-function-small(2,.8,-4);
+	font-weight: 700;
+	text-align: center;
+
+}
+h2, .h2 {
+	.font-function-small(2,.7,-2);
+	font-style: italic;
+	text-align: center;
+}
+h3, .h3 {
+	.font-function-small(1,1,0);
+	font-weight: 700;
+}
+h4, .h4 {
+	.font-function-small(1,.8,0);
+	font-weight: 200;
+}
+h5, .h5 {
+	.font-function-small(1,.75,0);
+	font-weight: 700;
+}
+h6, .h6 {
+	.font-function-small(1,.5,0);
+}
+
+ul, ol {
+	margin-left: @line;
+}
+
+blockquote {
+	.font-function-small(1, .9, 0);
+	font-weight: 400;
+	font-style: italic;
+}
+
+@media screen and (min-width: @medium-screen) {
+	 body {
+		.font-function-medium(1,.7,0);
+		font-family: @font-family-base;
+
+	}
+
+	h1, .h1 {
+		.font-function-medium(2,.8,-4);
+		font-weight: 700;
+		text-align: center;
+
+	}
+	h2, .h2 {
+		.font-function-medium(2,.7,-2);
+		font-style: italic;
+		text-align: center;
+	}
+	h3, .h3 {
+		.font-function-medium(1,1,0);
+		font-weight: 700;
+	}
+	h4, .h4 {
+		.font-function-medium(1,.8,0);
+		font-weight: 200;
+	}
+	h5, .h5 {
+		.font-function-medium(1,.75,0);
+		font-weight: 700;
+	}
+	h6, .h6 {
+		.font-function-medium(1,.5,0);
+	}
+
+	ul, ol {
+		margin-left: @line-medium;
+	}
+
+	blockquote {
+		.font-function-medium(1, .9, 0);
+		font-weight: 400;
+		font-style: italic;
+	}
+}
